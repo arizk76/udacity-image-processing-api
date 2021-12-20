@@ -5,19 +5,26 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc",
-    "lint": "eslint ./src --ext .ts"
+    "lint": "eslint ./src --ext .ts",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
   },
   "keywords": [],
   "author": "Ahmed Rizk",
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.0",
+    "@types/jasmine": "^3.10.2",
     "@types/node": "^17.0.1",
+    "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "jasmine": "^3.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "prettier": "^2.5.1",
+    "supertest": "^6.1.6",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   }

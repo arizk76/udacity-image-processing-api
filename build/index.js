@@ -1,5 +1,6 @@
 "use strict";
-var test = function () {
-    console.log("Test Typescript build");
+Object.defineProperty(exports, "__esModule", { value: true });
+var myFunc = function (num) {
+    return num * num;
 };
-test();
+exports.default = myFunc;

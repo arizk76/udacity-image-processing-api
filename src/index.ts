@@ -1,5 +1,5 @@
-const test = (): void => {
-    console.log('Test Typescript build');
+const myFunc = (num: number): number => {
+    return num * num;
 };
 
-test();
+export default myFunc;
