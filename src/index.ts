@@ -1,5 +1,5 @@
-const test = (): void  =>{
-  console.log("Test Typescript build")
-}
+const test = (): void => {
+    console.log('Test Typescript build');
+};
 
-test()
+test();
