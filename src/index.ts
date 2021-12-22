@@ -1,4 +1,5 @@
 import express = require('express');
+import imagesRoute from './routes/api/v1/images/index';
 
 const app = express();
 const host = 'localhost';
@@ -11,5 +12,6 @@ app.listen(port, host, (): void => {
 app.get('/', (request, response) => {
     response.status(200).send('The Server is running OK!');
 });
+app.get('/api/v1/images', imagesRoute);
 
 module.exports = app;
