@@ -1,7 +1,5 @@
 # Image Processing API
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-
 ## _Udacity Advanced Web Development Project_
 
 ## Summary
@@ -17,3 +15,17 @@ This project aims to give a real-world scenario using read and write to disk via
 - Setup Jasmine and related folder structure.
 - Install Express and Sharp.
 - Create endpoint for the project.
+
+## Endpoints
+
+One API endpoint as per the following specification:
+
+- URL: (<http://localhost:5000/api/v1/images>).
+- Query parameters:
+  - filename (only accept jpg types).
+  - width (number)
+  - height (number)
+
+Example: http://localhost:5000/api/v1/images?filename=icelandwaterfall.jpg&width=500&height=500
+
+## Project Folder Structure
