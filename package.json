@@ -8,6 +8,7 @@
     "prod": "npm run build && node ./build/index.js",
     "build": "npx tsc",
     "lint": "eslint ./src --ext .ts",
+    "prettier": "prettier --config .prettierrc src/**/*.ts --write",
     "jasmine": "jasmine",
     "test": "npm run build && npm run jasmine"
   },
@@ -15,10 +16,11 @@
   "author": "Ahmed Rizk",
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.0",
+    "@types/express": "^4.17.13",
     "@types/jasmine": "^3.10.2",
     "@types/node": "^17.0.1",
     "@types/nodemon": "^1.19.1",
-    "@types/request": "^2.48.7",
+    "@types/sharp": "^0.29.4",
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
     "@typescript-eslint/parser": "^5.7.0",
@@ -34,14 +36,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@types/body-parser": "^1.19.2",
-    "@types/express": "^4.17.13",
-    "@types/express-serve-static-core": "^4.17.26",
-    "@types/qs": "^6.9.7",
-    "@types/serve-static": "^1.13.10",
-    "@types/sharp": "^0.29.4",
     "express": "^4.17.2",
-    "request": "^2.88.2",
     "sharp": "^0.29.3"
   }
 }

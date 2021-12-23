@@ -1,8 +1,9 @@
 import express from 'express';
+import imageResize from '../../../../services/imageResize';
 const imagesRoute = express.Router();
 
 imagesRoute.get('/api/v1/images', (_req, _res) => {
-    _res.send('Welcome Image API').status(200).end();
+    imageResize(_req, _res);
 });
 
 export default imagesRoute;

@@ -13,6 +13,6 @@ app.listen(port, host, (): void => {
 app.get('/', logger, (request, response) => {
     response.status(200).send('The Server is running OK!');
 });
-app.get('/api/v1/images', imagesRoute);
+app.get('/api/v1/images', logger, imagesRoute);
 
 module.exports = app;
