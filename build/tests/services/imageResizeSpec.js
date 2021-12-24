@@ -37,20 +37,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest = require("supertest");
-var App = require("../index");
+var App = require("../../index");
 var request = supertest(App);
-describe('Test endpoint responses', function () {
-    // afterAll(() => {
-    //     App.close();
-    // });
-    it('check the api endpoint status is 200 ok!', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+describe('Test API endpoint responses for Image Resize', function () {
+    it('Success: check the image api endpoint status is 200 ok!', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/')];
+                case 0: return [4 /*yield*/, request.get('/api/v1/images')];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe('Test No Filename in query URL', function () {
+    it('Error: check message if filename not provided within url query parameters', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/api/v1/images?width=500&height=500')];
+                case 1:
+                    response = _a.sent();
+                    // console.log(response);
+                    expect(response.text).toBe('Error: Please enter valid parameters. (Example: http://localhost:5000/api/v1/images?filename=example.jpg&width=200&height=300)');
+                    done();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+});
+describe('Image Resize Return an jpeg image type', function () {
+    it('Success: check image resize return an image/jpeg content-type', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.get('/api/v1/images?filename=icelandwaterfall.jpg&width=500&height=500')];
+                case 1:
+                    response = _a.sent();
+                    expect(response.header).toEqual(jasmine.objectContaining({ 'content-type': 'image/jpeg' }));
                     done();
                     return [2 /*return*/];
             }

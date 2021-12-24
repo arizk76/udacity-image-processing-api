@@ -2,7 +2,7 @@
   "name": "udacity-image-processing-api",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.ts",
     "prod": "npm run build && node ./build/index.js",
