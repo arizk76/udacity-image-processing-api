@@ -35,10 +35,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var supertest = require("supertest");
 var App = require("../../index");
+var path_1 = __importDefault(require("path"));
+var sharp_1 = __importDefault(require("sharp"));
 var request = supertest(App);
+var mockSourceImagePath = path_1.default.join("".concat(__dirname, "../../../images/full/santamonica.jpg"));
 describe('Test API endpoint responses for Image Resize', function () {
     it('Success: check the image api endpoint status is 200 ok!', function (done) { return __awaiter(void 0, void 0, void 0, function () {
         var response;
@@ -82,6 +88,22 @@ describe('Image Resize Return an jpeg image type', function () {
                     done();
                     return [2 /*return*/];
             }
+        });
+    }); });
+});
+describe('Sharp imageResize Function return truthy', function () {
+    it('Success: sharp().resize() truthy returned', function (done) { return __awaiter(void 0, void 0, void 0, function () {
+        var sharpResponse;
+        return __generator(this, function (_a) {
+            sharpResponse = function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, (0, sharp_1.default)(mockSourceImagePath).resize(300, 300)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            }); }); };
+            expect(sharpResponse).toBeTruthy();
+            done();
+            return [2 /*return*/];
         });
     }); });
 });

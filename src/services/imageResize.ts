@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-const imageResize = async (request: express.Request, response: express.Response) => {
+const imageResize = async (request: express.Request, response: express.Response): Promise<void> => {
     //Check for correct url parameters.
     if (
         request.query.filename === undefined ||
@@ -39,7 +39,9 @@ const imageResize = async (request: express.Request, response: express.Response)
             console.log(`Success: Resized Image sent successfully !`);
             return;
         } catch (error) {
-            console.log(`Info: No image file cached with ${imageWidth} width and ${imageHeight} height.`);
+            console.log(
+                `Info: No image file cached for ${imageFileName} with ${imageWidth}px width and ${imageHeight}px height.`
+            );
         }
         // Check if requested image file to be resized ia available in full directory
         try {

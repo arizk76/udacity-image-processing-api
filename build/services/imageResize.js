@@ -77,7 +77,7 @@ var imageResize = function (request, response) { return __awaiter(void 0, void 0
                     return [2 /*return*/];
                 }
                 catch (error) {
-                    console.log("Info: No image file cached with ".concat(imageWidth, " width and ").concat(imageHeight, " height."));
+                    console.log("Info: No image file cached for ".concat(imageFileName, " with ").concat(imageWidth, "px width and ").concat(imageHeight, "px height."));
                 }
                 // Check if requested image file to be resized ia available in full directory
                 try {
